@@ -1,19 +1,17 @@
 import { useState } from "react";
 import Counter from "./components/Counter";
-import { useEffect } from "react";
 
 function App() {
   const [toggle, setToggle] = useState(false);
+  const [count, setCount] = useState(0);
 
   const onClickToggle = () => {
     setToggle(!toggle);
   };
 
-  useEffect(() => {}, []);
-
   return (
     <div className="bg-red-100 min-h-screen flex flex-col justify-center items-center">
-      {toggle && <Counter />}
+      {toggle && <Counter count={count} setCount={setCount} />}
       {/* {toggle ? <Counter /> : "카운터"} */}
       <button
         onClick={onClickToggle}
